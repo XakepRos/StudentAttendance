@@ -1,0 +1,17 @@
+﻿@model StudentAttendance.ViewModel.CourseViewModel
+@using (Html.BeginForm("CreateCourse", "Course", FormMethod.Post, new { id = "CreateCourseForm"}))
+{
+    @Html.Partial("_Form", Model);
+}
+
+
+
+
+@*@model StudentAttendance.ViewModel.CourseViewModel
+@using (Html.BeginForm("CreateCourse", "Course", FormMethod.Post,new { id="CreateCourseForm"}))
+    {
+<form id="CreateCourseForm">
+    @Html.Partial("_Form", Model);
+</form>
+}*@
+

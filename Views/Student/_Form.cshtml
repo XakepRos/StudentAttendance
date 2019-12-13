@@ -1,0 +1,230 @@
+﻿@model StudentAttendance.ViewModel.StdInformationViewModel
+<div class="container">
+    <div class="form-horizontal">
+        <h4>Student Information Details</h4>
+        <hr />
+        @Html.HiddenFor(x => x.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.StdName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.StdName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.StdName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CourseId, "CourseId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("CourseId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CourseId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DOB, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DOB, new { htmlAttributes = new { @class = "form-control", Type = "date" } })
+                @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Age, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Age, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Mobile, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Mobile, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    Male: @Html.RadioButtonFor(model => model.Gender, "Male")
+                    Female: @Html.RadioButtonFor(model => model.Gender, "Female")
+                    Other: @Html.RadioButtonFor(model => model.Gender, "Other")
+                    @*Male:   @Html.RadioButton(.Male)
+        Female: @Html.RadioButton("Gender", "Female")
+        Other: @Html.RadioButton("Gender", "Other")*@
+                    @*@Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Food, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.CheckBox("Food")
+                    @Html.Label("Food", "Is Veg")
+                   
+                    @*@Html.EditorFor(model => model.Food, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.ValidationMessageFor(model => model.Food, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextArea("Description", null, new { @class = "form-control" })
+                    @*@Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!--
+    
+    <!DOCTYPE html>
+<html>
+<head>
+<title>Student Information details</title>
+</head>
+  <body>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<div class="container stdcreate">
+    <div class="row">
+        <div class="col-md-10">
+
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+                    <div class="row register-form">
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Full Name *" value="" />
+                            </div>
+                            @*<div class="form-group">
+                                <select class="form-control">
+                                    <option class="hidden" id="CourseId" selected disabled>Please select your Course</option>
+                                    <option>What is your Birthdate?</option>
+                                    <option>What is Your old Phone Number</option>
+                                    <option>What is your Pet Name?</option>
+                                </select>
+                            </div>*@
+
+                        <div class="dropdown">
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                please select your course
+
+                            </button>
+
+                            @*<div class="dropdown-menu">
+                               <a class="dropdown-item" @Html.DropDownList("CourseId", null, htmlAttributes: new { @class = "form-control" })></a>
+                              </div>*@
+                        </div>
+
+
+                            <div class="form-group">
+                                <input type="date" class="form-control" placeholder="Date of Birth" value="" />
+                            </div>
+
+                            <div class="form-group">
+                                AGE:<input type="number" id="age" class="form-control" placeholder="Age" value="" />
+                            </div>
+
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Your Email *" value="" />
+                            </div>
+
+                            @*<label for="phone">Enter your phone number:</label>
+                               <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+                             <small>Format: 123-456-7890</small>*@
+
+                            <div class="form-group">
+                                <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Your Mobile Number *" value="" />
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Address" value="" />
+                            </div>
+
+                            <div class="form-group">
+                                <div class="maxl">
+                                    Gender:  <label class="radio inline">
+                                        <input type="radio" name="gender" value="male" checked>
+                                        <span> Male </span>
+                                    </label>
+                                    <label class="radio inline">
+                                        <input type="radio" name="gender" value="female">
+                                        <span>Female </span>
+                                    </label>
+                                    <label class="radio inline">
+                                        <input type="radio" name="gender" value="other">
+                                        <span>Other </span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="maxl">
+                                    Food:
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" value="">Vegetarian
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" value="">Non-Vegetarian
+                                        </label>
+                                    </div>
+
+
+                                    @*<div class="checkbox inline checkbox-inline">
+                    <input type="checkbox" name="food" value="" />
+                    <span>Vegetarian</span>
+                </div>
+                <div class="checkbox inline">
+                    <input type="checkbox" name="food" value="Nonvegetarian" />
+                    <span>Non-Vegetarian</span>
+                </div>*@
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <textarea type="text" class="form-control" placeholder="Enter Your Description" value="" />
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  </body>
+</html>
+
+    -->

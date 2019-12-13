@@ -1,0 +1,76 @@
+﻿@model IEnumerable<StudentAttendance.ViewModel.CourseViewModel>
+
+@{
+    ViewBag.Title = "Course";
+    //@Layout= null;
+}
+
+<h2>Course Index</h2>
+
+@*<link href="~/Content/dataTables.bootstrap.min.css" rel="stylesheet" />*@
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.css" />
+@*<link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css" />*@
+
+
+
+<div class="container">
+    <div class="col-12" style="margin-top:0px;">
+        <div class="box_layout">
+            <div class="heading">
+                <ul class="buttons">
+                    <li><button class="btn_addnew btn btn-primary create" data-href="/Course/CreateCourse" title="Add New"><i class="fa fa-plus">Add New</i></button></li>
+                </ul>
+            </div>
+
+            <div class="content border-bottom">
+                Following are the list of courses.
+            </div>
+            <div class="table-responsive">
+                <table id="courseGrid">
+                    <thead>
+                        <tr>
+                            <th>S.N</th>
+                            <th>Course Name</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @item.Id
+                                </td>
+                                <td>
+                                    @item.CourseName
+                                </td>
+                                <td>
+                                    <div class="" data-id=@item.Id>
+                                        <button class="btn_edit btn btn-sm">
+                                            Edit
+                                        </button>
+                                        <button class="btn_delete btn btn-danger">
+                                            Delete
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                         }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    @*<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>*@
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
+    @*<script type="text/javascript" src="DataTables/datatables.min.js"></script>*@
+
+    <script src="~/Scripts/webapp/Course/course.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#courseGrid').DataTable();
+        });
+    </script>
+}

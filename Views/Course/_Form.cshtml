@@ -1,0 +1,19 @@
+﻿@model StudentAttendance.ViewModel.CourseViewModel
+<div class="container">
+    <div class="form-group">
+        <div class="box-group">
+            <div class="row">
+                <div class="col-6">
+                    <label>Course Name</label>
+                    @Html.HiddenFor(x => x.Id);
+                    @Html.TextBoxFor(x => x.CourseName, new { @class = "form-control", @placeholder = "Course Name" })
+                    @Html.ValidationMessageFor(model => model.CourseName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

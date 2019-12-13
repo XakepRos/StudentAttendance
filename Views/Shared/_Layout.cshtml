@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Student Attendance ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link href="~/Content/template.min.css" rel="stylesheet" />
+
+</head>
+
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">@Html.ActionLink("Student Attendance Application", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" }) </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" @Html.ActionLink("Home", "Index", "Home")>  <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" @Html.ActionLink("Course", "Index", "Course")> </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" @Html.ActionLink("Student Details", "Index", "Student")> </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" @Html.ActionLink("Attendance", "Index", "Attendance")></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" @Html.ActionLink("About", "About", "Home")></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" @Html.ActionLink("Contact", "Contact", "Home")></a>
+                </li>
+               
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+
+        <div id="ModalCreate" class="ModalCreatePopUp">
+            <div class="frame">
+                <div class="box_layout">
+                    <div class="heading">
+                        <button class="close" id="btnChatClose"><i class="fa fa-close"></i></button>
+                    </div>
+                    <div class="content">
+                        <div class="form-group">
+                            <div class="modal-body">
+
+                            </div>
+                            <div class="box-group">
+                                <button type="button" id="btnCreate">Save</button>
+                                <button class="button" id="btnClose">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div id="ModalEdit" class="ModalEditPopUp">
+            <div class="frame">
+                <div class="box_layout">
+                    <div class="heading">
+                        <button class="close" id="btnChatClose"><i class="fa fa-close"></i></button>
+                    </div>
+                    <div class="content">
+                        <div class="form-group">
+                            <div class="modal-body">
+
+                            </div>
+                            <div class="box-group">
+                                <button type="button" id="btnModalEdit">Save</button>
+                                <button class="button" id="btnCloseEdit">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Student Attendance ASP.NET Application</p>
+        </footer>
+    </div>
+
+               @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

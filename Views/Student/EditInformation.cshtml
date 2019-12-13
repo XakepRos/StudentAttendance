@@ -1,0 +1,14 @@
+﻿@model StudentAttendance.ViewModel.StdInformationViewModel
+
+
+@using (Html.BeginForm("EditInformation", "Student", FormMethod.Post, new { id = "EditStudentForm" }))
+{
+    @Html.Partial("_Form", Model);
+}
+
+@*@{
+    ViewBag.Title = "EditInformation";
+}
+
+<h2>EditInformation</h2>*@
+
